@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <title>My App</title>
+  <!-- Path to Framework7 Library CSS-->
+  <link rel="stylesheet" href="../../dist/css/framework7.ios.min.css">
+  <!-- Path to your custom app styles-->
+  <link rel="stylesheet" href="css/my-app.css">
+</head>
+
+<body>
+  <!-- Status bar overlay for fullscreen mode-->
+  <div class="statusbar-overlay"></div>
+
+  <!-- Views, and they are tabs-->
+  <!-- We need to set "toolbar-through" class on it to keep space for our tab bar-->
+  <div class="views tabs toolbar-through">
+    <!-- Your first view, it is also a .tab and should have "active" class to make it visible by default-->
+    <div id="view-1" class="view view-main tab active">
+      <!-- Pages-->
+      <div class="pages">
+        <!-- Page, data-page contains page name-->
+        <div data-page="index-1" class="page">
+          <!-- Scrollable page content-->
+          <div class="page-content">
+            <div class="content-block-title"> Welcome </div>
+            <div class="content-block">
+              <html>
+
+              <head>
+
+                <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="true" data-auto-logout-link="true" data-use-continue-as="true"></div>
+
+              </head>
+              <body>
+               <div id="facebook"></div>  <!-- giving a div id helps the js file to find where the right script should go -->
+            </body>
+
+            </html>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Second view (for second wrap)-->
+  <div id="view-2" class="view tab">
+    <!-- We can make with view with navigation, let's add Top Navbar-->
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="center sliding">Sports News</div>
+      </div>
+    </div>
+    <div class="pages navbar-through">
+      <div data-page="index-2" class="page">
+        <div class="page-content">
+          <!-- REMEMBER YOU NEED TO SHOW THE FEED ON VAR DESC  -->
+          <div id="sports"> <!-- giving a div id helps the js file to find where the data should go -->
+            <br>
+          </div>
+          <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+           <!-- Feed on js File -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="view-3" class="view tab">
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="center sliding">Business News</div>
+      </div>
+    </div>
+    <div class="pages navbar-through">
+      <div data-page="index-3" class="page">
+
+        <div class="page-content">
+
+          <div id="business">  <!-- giving a div id helps the js file to find where the data should go -->
+            <br>
+            <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+           <!-- Feed on js File -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="view-4" class="view tab">
+    <div class="pages navbar-fixed">
+      <div data-page="index-4" class="page">
+        <div class="navbar">
+          <div class="navbar-inner">
+            <div class="center">Finance News</div>
+          </div>
+        </div>
+        <div class="page-content">
+
+          <div id="finance">  <!-- giving a div id helps the js file to find where the data should go -->
+            <br>
+            <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+              <!-- Feed on js File -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="view-5" class="view tab">
+    <div class="pages navbar-fixed">
+      <div data-page="index-5" class="page">
+        <div class="navbar">
+          <div class="navbar-inner">
+            <div class="center">Your Personal News</div>
+          </div>
+        </div>
+        <div class="page-content">
+
+          <div id="top10stories">
+            <div class="content-block">
+              <p>All Custom Breaking News</p>
+            </div>
+
+            <div id="kylestop">
+              
+			  <p>kyles top News</p><br>
+
+            </div>
+            <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+          </div>
+		  
+          <div id="getmystories">
+            <div class="content-block">
+              <p>My Breaking News</p>
+            </div>
+				<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+					
+          </div>
+
+          <div id="stories">
+				<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+				
+			<!-- This DIV below captures the user input (data we need to send to the db) and we set an ID for the data we are collecting in order to use this on the method at the script in the js file -->
+            <div class="content-block">
+              <p> Write your Breaking News Here: </p> <br>
+              <input type="text" id="story" size="35"/> 
+            </div>
+            <div class="content-block">
+              <button onclick="saveStory()" style="height: 20px; width:150px">Send</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!-- Bottom Tabbar-->
+  <div class="toolbar tabbar tabbar-labels">
+    <div class="toolbar-inner"><a href="#view-1" class="tab-link active"> <i class="icon tabbar-demo-icon-2"></i><span class="tabbar-label">Login</span></a><a href="#view-2" class="tab-link"><i class="icon tabbar-demo-icon-2"></i><span class="tabbar-label"> Sports</span></a><a href="#view-3" class="tab-link"> <i class="icon tabbar-demo-icon-2"></i><span class="tabbar-label"> Business</span></a><a href="#view-4" class="tab-link"> <i class="icon tabbar-demo-icon-2"></i><span class="tabbar-label"> Financial</span></a></a><a href="#view-5" class="tab-link"> <i class="icon tabbar-demo-icon-2"></i><span class="tabbar-label">Personal News </span></a></div>
+  </div>
+</div>
+<!-- Path to Framework7 Library JS-->
+<script type="text/javascript" src="../../dist/js/framework7.min.js"></script>
+<!-- Path to your app js-->
+<script type="text/javascript" src="js/my-app.js"></script>
+</body>
+</html>
